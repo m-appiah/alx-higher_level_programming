@@ -25,7 +25,7 @@ if __name__ == "__main__":
     elif argv[2] == "*":
         result = mul(a, b)
 
-    elif argv[2] == "/":
-        resul = div(a, b)
+    else:
+        result = div(a, b)
 
     print("{:d} {} {:d} = {:d}".format(a, argv[2], b, result))
