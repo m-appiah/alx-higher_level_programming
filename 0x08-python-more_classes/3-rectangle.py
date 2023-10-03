@@ -42,7 +42,8 @@ class Rectangle:
         rect_str = ""
         for _ in range(self.__height):
             rect_str += "#" * self.__width + "\n"
-        return rect_str[:-1]  # Remove the trailing newline
+        return rect_str[:-1]
 
     def __repr__(self):
-        return "<{} object at {}>".format(self.__class__.__module__ + '.' + self.__class__.__name__, hex(id(self)))
+        class_name = self.__class__.__module__ + '.' + self.__class__.__name__
+        return "<{} object at {}>".format(class_name, hex(id(self)))
