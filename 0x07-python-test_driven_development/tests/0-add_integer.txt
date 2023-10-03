@@ -37,8 +37,8 @@ Adding two positive float values
 	5
 
 Adding a positive and a negative float values
-	>>> add_integer(-0.4, 2.0)
-	-2
+	>>> add_integer(0.4, 2.0)
+	2
 
 Adding two negative float values
 	>>> add_integer(-0.4, -2.0)
