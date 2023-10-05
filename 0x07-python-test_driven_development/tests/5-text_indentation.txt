@@ -1,0 +1,73 @@
+This module defines a text-indentation function ``text_indentation(text)`` and its usage
+
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("Hello. World:")
+Hello.
+<BLANKLINE>
+World:
+<BLANKLINE>
+
+::
+
+>>> text_indentation("  Hi. World:")
+Hi.
+<BLANKLINE>
+World:
+<BLANKLINE>
+
+::
+
+>>> text_indentation("  Hi. Python?")
+Hi.
+<BLANKLINE>
+Python?
+<BLANKLINE>
+
+::
+
+>>> text_indentation("2. Python?")
+2.
+<BLANKLINE>
+Python?
+<BLANKLINE>
+
+::
+
+>>> text_indentation(4)
+Traceback (most recent call last):
+  ...
+TypeError: text must be a string
+
+::
+
+>>> text_indentation(":")
+:
+<BLANKLINE>
+
+::
+
+>>> text_indentation(17)
+Traceback (most recent call last):
+  ...
+TypeError: text must be a string
+
+::
+
+>>> text_indentation("c: is. fun?")
+c:
+<BLANKLINE>
+is.
+<BLANKLINE>
+fun?
+<BLANKLINE>
+
+::
+
+>>> text_indentation("i. love: python?")
+i.
+<BLANKLINE>
+love:
+<BLANKLINE>
+python?
+<BLANKLINE> 
