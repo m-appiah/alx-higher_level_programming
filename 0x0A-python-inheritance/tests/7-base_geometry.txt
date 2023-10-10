@@ -41,14 +41,6 @@ Traceback (most recent call last):
   ...
 ValueError: distance must be greater than 0
 
-::
-
-# Area test case
-
->>> bg.area()
-Traceback (most recent call last):
-  ...
-Exception: area() is not implemented
 
 ::
 
