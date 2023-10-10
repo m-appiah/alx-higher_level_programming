@@ -10,4 +10,4 @@ def lookup(obj):
         obj - object to be checked
     Return: list
     """
-    return(dir(obj))
+    return (dir(obj))
