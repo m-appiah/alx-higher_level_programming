@@ -65,3 +65,7 @@ class Square(Rectangle):
     def area(self):
         """Calculate the area of a square"""
         return self._Rectangle__height ** 2
+
+    if __name__ == "__main__":
+        import doctest
+    doctest.testmod()
