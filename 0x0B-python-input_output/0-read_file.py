@@ -10,6 +10,6 @@ def read_file(filename=""):
     Returns:
         None
     """
-    with open(filename, 'r') as file:
-        for line in file:
+    with open(filename, encoding="utf-8") as f:
+        for line in f:
             print(line, end="")
