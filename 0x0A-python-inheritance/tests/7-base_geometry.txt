@@ -1,0 +1,42 @@
+=============================
+Task 7 Test Cases
+=============================
+
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
+
+::
+# Test Case 1
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator(1, 2)
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("height", 12)
+>>> bg.integer_validator("width", 12)
+
+::
+
+# Test Case 2
+
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+  ...
+TypeError: name must be an integer
+
+::
+
+# Test Case 3
+
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+  ...
+ValueError: age must be greater than 0
+
+::
+
+# Test Case 4
+
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+  ...
+ValueError: distance must be greater than 0
