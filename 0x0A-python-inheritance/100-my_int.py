@@ -1,28 +1,15 @@
 #!/usr/bin/python3
-"""Class for the MYInt"""
+
+"""Class for the MyInt"""
 
 
 class MyInt(int):
+    """A New Int that rebels"""
+
     def __eq__(self, other):
-        """
-        Override the == operator to invert its behavior.
-
-        Args:
-            other: The object to compare with.
-
-        Returns:
-            bool: True if not equal, False if they are equal.
-        """
+        # Override == (equality) to behave as !=
         return super().__ne__(other)
 
     def __ne__(self, other):
-        """
-        Override the != operator to invert its behavior.
-
-        Args:
-            other: The object to compare with.
-
-        Returns:
-            bool: True if equal, False if they are not equal.
-        """
+        # Override != (inequality) to behave as ==
         return super().__eq__(other)
