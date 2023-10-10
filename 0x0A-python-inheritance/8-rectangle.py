@@ -29,7 +29,11 @@ class Rectangle(BaseGeometry):
     """Inherit the base geometry"""
 
     def __init__(self, width, height):
-        """Method or function instantiation"""
+        """Method or function instantiation
+
+        Args:
+            name (str): The name of the value.
+            value (int): The value to validate."""
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
