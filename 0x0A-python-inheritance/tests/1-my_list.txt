@@ -1,6 +1,24 @@
 # Test cases
 >>> MyList = __import__("1-my_list").MyList
 
+::
+
+# Test for empty list
+
+>>> my_custom_list = MyList([])
+>>> my_custom_list.print_sorted()
+[]
+
+::
+
+>>> my_custom_list = MyList()
+>>> my_custom_list.print_sorted()
+[]
+
+::
+
+# Test for non empty lists
+
 >>> my_custom_list = MyList([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5])
 >>> my_custom_list.print_sorted()
 [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
@@ -31,7 +49,7 @@ TypeError: '<' not supported between instances of 'tuple' and 'int'
 
 ::
 
->>> my_custom_list = MyList([3, 6, {3:4}])
+>>> my_custom_list = MyList([3, 6, {7:4}])
 >>> my_custom_list.print_sorted()
 Traceback (most recent call last):
 ...
