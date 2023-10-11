@@ -26,6 +26,7 @@ class Student:
         Returns:
             dict: A dictionary representing the object's attributes.
         """
-        if (type(attrs) == list and all(type(ele) == str for ele in attrs)):
+        if (type(attrs) == list and
+                all(type(ele) == str for ele in attrs)):
             return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
         return self.__dict_
