@@ -19,14 +19,12 @@ class Student:
     def to_json(self, attrs=None):
         """
         Retrieve a JSON representation of the object.
-
         Args:
-            attrs: A list of attribute names for JSON representation.
-
+            attrs: A list of attribute names for JSON representation
         Returns:
             dict: A dictionary representing the object's attributes.
         """
         if (type(attrs) == list and
                 all(type(ele) == str for ele in attrs)):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
+            return {i: getattr(self, i) for i in attrs if hasattr(self, i)}
         return self.__dict_
