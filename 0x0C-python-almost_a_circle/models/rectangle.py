@@ -98,8 +98,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """Defines a format for the string representation of the class"""
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
-                {self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - " \
+            f"{self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
         """Assigns an argument to each attribute"""
