@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """Base class for managing unique identifiers in other classes"""
 import json
+import csv
+import turtle
+import os
 
 
 class Base:
@@ -66,3 +69,88 @@ class Base:
             return [cls.create(**d) for d in list_dict]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Save a list of instances to a CSV file"""
+        filename = "{}.csv".format(cls.__name__)
+        with open(filename, "w", newline="") as csvfile:
+            csvwriter = csv.writer(csvfile)
+            for obj in list_objs:
+                if cls.__name__ == "Rectangle":
+                    csvwriter.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Load a list of instances from a CSV file"""
+        filename = "{}.csv".format(cls.__name__)
+        try:
+            with open(filename, "r", newline="") as csvfile:
+                csvreader = csv.reader(csvfile)
+                instances = []
+                for row in csvreader:
+                    row = [int(val) for val in row]
+                    if cls.__name__ == "Rectangle":
+                        instance = cls(1, 1)
+                        (
+                                instance.id,
+                                instance.width,
+                                instance.height,
+                                instance.x,
+                                instance.y
+                                ) = row
+
+                    elif cls.__name__ == "Square":
+                        instance = cls(1)
+                        (
+                                instance.id,
+                                instance.size,
+                                instance.x,
+                                instance.y
+                                ) = row
+                    instance.append(instance)
+                return instances
+        except FileNotFoundError:
+            return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Create a Turtle screen and set up options"""
+        screen = turtle.Screen()
+        screen.bgcolor("white")
+        screen.title("Draw Rectangles and Squares")
+
+        """Create a Turtle object for drawing"""
+        drawer = turtle.Turtle()
+        drawer.speed(1)
+
+        def draw_rectangle(rectangle):
+            """draw a rectangle"""
+            for _ in range(2):
+                drawer.forward(rectangle.width)
+                drawer.left(90)
+                drawer.forward(rectangle.height)
+                drawer.left(90)
+
+        def draw_square(square):
+            """draw a square"""
+            for _ in range(4):
+                drawer.forward(square.size)
+                drawer.left(90)
+
+        """Draw the rectangles"""
+        for rectangle in list_rectangles:
+            drawer.penup()
+            drawer.goto(rectangle.x, rectangle.y)
+            drawer.pendown()
+            draw_rectangle(rectangle)
+
+        """Draw the squares"""
+        for square in list_squares:
+            drawer.penup()
+            drawer.goto(square.x, square.y)
+            drawer.pendown()
+            draw_square(square)
+
+        """Close the drawing window on click"""
+        screen.exitonclick()
