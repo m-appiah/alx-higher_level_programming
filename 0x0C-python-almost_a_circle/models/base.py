@@ -36,3 +36,21 @@ class Base:
         json_str = cls.to_json_string(list_dict)
         with open(filename, "w") as file:
             file.write(json_str)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Load a list of dictionaries from a JSON string"""
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Create an instance with attributes set from a dictionary"""
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
