@@ -108,7 +108,7 @@ class Base:
                                 instance.x,
                                 instance.y
                                 ) = row
-                    instance.append(instance)
+                        instances.append(instance)
                 return instances
         except FileNotFoundError:
             return []
