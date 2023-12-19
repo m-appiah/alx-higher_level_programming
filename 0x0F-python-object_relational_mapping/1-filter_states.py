@@ -26,4 +26,5 @@ if __name__ == "__main__":
     rows = cursor.fetchall()
 
     for row in rows:
-        print(row)
+        if row[1][0] == "N":
+            print(row)
