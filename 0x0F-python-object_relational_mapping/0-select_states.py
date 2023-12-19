@@ -1,14 +1,12 @@
 #!/usr/bin/python3
+"""Retrieving username, password, and database name
+    from command line arguments
+    """
 
 import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
-    """
-    Retrieving username, password, and database name
-    from command line arguments
-    """
-
     username = argv[1]
     password = argv[2]
     database = argv[3]
@@ -29,6 +27,3 @@ if __name__ == "__main__":
 
     for row in rows:
         print(row)
-
-    cursor.close()
-    db.close()
