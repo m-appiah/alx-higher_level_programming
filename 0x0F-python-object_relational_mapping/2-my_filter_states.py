@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     cursor.execute(
             "SELECT * FROM states WHERE name = '{}' ORDER BY id".formt(
-                state_name,))
+                state_name))
     rows = cursor.fetchall()
 
     for row in rows:
