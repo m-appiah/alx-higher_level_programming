@@ -9,7 +9,7 @@ from sys import argv
 if __name__ == "__main__":
     username = argv[1]
     password = argv[2]
-    database = argv[3]
+    db = argv[3]
     state_name = argv[4]
 
     db = MySQLdb.connect(
@@ -17,7 +17,7 @@ if __name__ == "__main__":
             port=3306,
             user=username,
             passwd=password,
-            database=db_name
+            database=db
             )
 
     cursor = db.cursor()
