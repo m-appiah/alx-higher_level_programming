@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Displays all values in the states table
-where name matches the argument.
+Lists all cities from the database hbtn_0e_4_usa
 """
 
 import MySQLdb
@@ -11,7 +10,6 @@ if __name__ == "__main__":
     username = argv[1]
     password = argv[2]
     database = argv[3]
-    state_name = argv[4]
 
     db = MySQLdb.connect(
             host='localhost',
@@ -22,10 +20,15 @@ if __name__ == "__main__":
             )
 
     cursor = db.cursor()
-    cursor.execute(
-            "SELECT * FROM states WHERE name LIKE \
-                    %(name)s ORDER BY states.id ASC", {'name': state_name})
 
+    query = """
+            SELECT cities.id, cities.name, states.name
+            FROM cities
+            JOIN states ON cities.state_id = states.id
+            ORDER BY cities.id
+            """
+
+    cursor.execute(query)
     rows = cursor.fetchall()
 
     for row in rows:
