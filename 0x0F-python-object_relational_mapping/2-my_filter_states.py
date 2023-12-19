@@ -22,9 +22,8 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute(
-            "SELECT id, name FROM states WHERE name = '{0}' ORDER BY id".formt(
-                argv[4]))
+    cursor.execute('SELECT id, name FROM states WHERE name = "{0}" '
+                   'ORDER BY id'.format(argv[4]))
     rows = cursor.fetchall()
 
     for row in rows:
