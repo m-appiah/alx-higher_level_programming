@@ -27,3 +27,4 @@ if __name__ == "__main__":
 
     session.add(new_state)
     session.commit()
+    session.close()
