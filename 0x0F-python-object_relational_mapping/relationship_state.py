@@ -3,7 +3,10 @@
 
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from relationship_city import Base, City
+from sqlalchemy.ext.declarative import declarative_base
+from relationship_city import City
+
+Base = declarative_base()
 
 
 class State(Base):
@@ -15,9 +18,7 @@ class State(Base):
             nullable=False,
             autoincrement=True)
 
-    name = Column(String(128), nullable=False)
-    cities = relationship(
-            "City",
-            cascade="all,
-            delete",
-            backref="state")
+    name = Column(
+            String(128),
+            nullable=False)
+    cities = relationship("City", cascade="all,delete", backref="state")
