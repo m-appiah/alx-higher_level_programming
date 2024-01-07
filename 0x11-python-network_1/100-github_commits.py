@@ -16,8 +16,10 @@ if __name__ == "__main__":
 
     response = requests.get(url, pars=pars)
     commits = response.json()
-
-    for commit in commits:
-        sha = commit.get("sha")
-        author_name = commit.get("commit").get("author").get("name")
-        print("{}: {}".format(sha, author_name))
+    try:
+        for commit in commits:
+            sha = commit.get("sha")
+            author_name = commit.get("commit").get("author").get("name")
+            print("{}: {}".format(sha, author_name))
+    except IndexError:
+        pass
