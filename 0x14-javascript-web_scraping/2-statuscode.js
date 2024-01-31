@@ -7,12 +7,12 @@ const url = process.argv[2];
 // Get the URL from the command line arguments
 
 request.get(url, (error, response) => {
-	// Make a GET request to the specified URL
-	if (error) {
-		// Handle errors
-		console.log(error);
-	} else {
-		// Print the status code of the response
-		console.log(`code: ${response.statusCode}`);
-	}
+  // Make a GET request to the specified URL
+  if (error) {
+    // Handle errors
+    console.log(error);
+  } else {
+    // Print the status code of the response
+    console.log(`code: ${response.statusCode}`);
+  }
 });

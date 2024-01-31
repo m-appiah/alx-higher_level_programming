@@ -9,15 +9,15 @@ const url = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
 // Construct the API URL based on the provided movie ID
 
 request.get(url, (error, response, body) => {
-	// Make a GET request to the specified URL
-	if (error) {
-		// Handle errors
-		console.log(error);
-	} else {
-		// Parse the JSON response
-		const data = JSON.parse(body);
+  // Make a GET request to the specified URL
+  if (error) {
+    // Handle errors
+    console.log(error);
+  } else {
+    // Parse the JSON response
+    const data = JSON.parse(body);
 
-		// Print the title of the movie
-		console.log(data.title);
-	}
+    // Print the title of the movie
+    console.log(data.title);
+  }
 });

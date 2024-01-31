@@ -11,9 +11,9 @@ request.get(url, { json: true }, (error, response, body) => {
     console.log(error);
     return;
   }
-// Create an object to store the count of completed tasks for each user
+  // Create an object to store the count of completed tasks for each user
   const tasksCompleted = {};
-// Iterate through the todos to count completed tasks by user
+  // Iterate through the todos to count completed tasks by user
   body.forEach((todo) => {
     if (todo.completed) {
       if (!tasksCompleted[todo.userId]) {
